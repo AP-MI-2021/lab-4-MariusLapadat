@@ -53,7 +53,7 @@ def ListaFaraPrim(l):
 def test_ListaFaraPrim():
     assert ListaFaraPrim([5,6,7,8,9]) == [6,8,9]
     assert ListaFaraPrim([17,20,21,28,29]) == [20,21,28]
-
+    assert ListaFaraPrim([7,11,13]) == []
 
 test_ListaFaraPrim()
 
