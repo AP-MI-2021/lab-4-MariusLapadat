@@ -2,7 +2,7 @@ def PrintMenu():
     print("1.Citeste lista")
     print("2.Elimina numere prime din lista")
     print("3.Afisati daca media aritmetica a numerelor este mai mare decat n")
-    print("4.")
+    print("4.Adauga la lista numarul de divizori proprii ai elementului")
     print("5.")
     print("x.Iesire")
 
@@ -84,6 +84,32 @@ def test_MediaAritmetican():
 test_MediaAritmetican()
 
 
+def AdaugaDivizori(l):
+    """
+    Adauga dupa fiecare element al listei numarul de divizori al sau
+    :param l lista de numere intregi:
+    :return o lista cu numerele urmate de cati divizori au fiecare:
+    """
+    k = []
+    for x in l:
+        k.append(x)
+        c = 0
+        for i in range(2, x // 2 + 1):
+            if x % i == 0:
+                c = c + 1
+        k.append(c)
+    return k
+
+
+def test_AdaugaDivizori():
+    assert AdaugaDivizori([19, 5, 24, 12, 9]) == [19, 0, 5, 0, 24, 6, 12, 4, 9, 1]
+    assert AdaugaDivizori([3, 5, 7]) == [3, 0, 5, 0, 7, 0]
+    assert AdaugaDivizori([10, 13, 17, 20]) == [10, 2, 13, 0, 17, 0, 20, 4]
+
+
+test_AdaugaDivizori()
+
+
 def main():
     while True:
         PrintMenu()
@@ -100,7 +126,8 @@ def main():
             else:
                 print("NU")
         elif optiune == "4":
-            break
+            l2 = AdaugaDivizori(l)
+            print(l2[:])
         elif optiune == "5":
             break
         elif optiune == "x":
