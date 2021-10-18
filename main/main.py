@@ -7,6 +7,42 @@ def PrintMenu():
     print("x.Iesire")
 
 
+"""
+def get_base_10_from_2(n):
+rez = 0
+p = 1
+while n:
+rez = rez + p * (n%10)
+p *= 2
+n //= 10
+return rez
+
+
+def get_base_16_from_2(n):
+rez = ""
+n_in_base10 = get_base_10_from_2(n)
+while n_in_base10:
+if n_in_base10 % 16 == 15:
+rez = rez + "F"
+elif n_in_base10 % 16 == 14:
+rez = rez + "E"
+elif n_in_base10 % 16 == 13:
+rez = rez + "D"
+elif n_in_base10 % 16 == 12:
+rez = rez + "C"
+elif n_in_base10 % 16 == 11:
+rez = rez + "B"
+elif n_in_base10 % 16 == 10:
+rez = rez + "A"
+elif n_in_base10 % 16 <= 9:
+for x in range(10):
+if n_in_base10 % 16 == x:
+rez = rez + str(x)
+break
+n_in_base10 //= 16
+return rez[::-1]
+"""
+
 def CitireLista():
     l = []
     n = int(input("Dati numarul de elemente din lista: "))
