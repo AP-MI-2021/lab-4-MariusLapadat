@@ -3,7 +3,7 @@ def PrintMenu():
     print("2.Elimina numere prime din lista")
     print("3.Afisati daca media aritmetica a numerelor este mai mare decat n")
     print("4.Adauga la lista numarul de divizori proprii ai elementului")
-    print("5.")
+    print("5.Compune tuplu cu numarul,indexul lui si numarul de aparitii")
     print("x.Iesire")
 
 
@@ -110,6 +110,33 @@ def test_AdaugaDivizori():
 test_AdaugaDivizori()
 
 
+def TupluNumar(l):
+    """
+    Formeaza un tuplu ce contine numarul, indexul numarului si numarul de aparitii al numarului
+    :param l lista cu numere intregi:
+    :return o lista de tupluri:
+    """
+    h=[]
+    i=-1
+    for x in l:
+        c=0
+        i=i+1
+        for j in l:
+            if x==j:
+                c=c+1
+        tuplu=(x,i,c)
+        h.append(tuplu)
+    return h
+
+def test_TupluNumar():
+    assert TupluNumar([25, 13, 26, 13]) ==[(25, 0, 1), (13, 1, 2), (26, 2, 1), (13, 3, 2)]
+    assert TupluNumar([1,2,3,4,1]) ==[(1, 0, 2), (2, 1, 1), (3, 2, 1), (4, 3, 1), (1, 4, 2)]
+    assert TupluNumar([3, 7, 3, 11,11]) ==[(3, 0, 2), (7, 1, 1), (3, 2, 2), (11, 3, 2), (11, 4, 2)]
+
+
+test_TupluNumar()
+
+
 def main():
     while True:
         PrintMenu()
@@ -129,7 +156,8 @@ def main():
             l2 = AdaugaDivizori(l)
             print(l2[:])
         elif optiune == "5":
-            break
+            l3=TupluNumar(l)
+            print(l3[:])
         elif optiune == "x":
             break
 
